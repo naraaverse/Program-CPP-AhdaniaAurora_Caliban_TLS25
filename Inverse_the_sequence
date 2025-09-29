@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int balik_angka(int angka){ // fungsi untuk membalik digit suatu bilangan
+    if (angka == 0){    // jika angka 0 maka akan mengembalikan nilai 0
+        return 0;
+    }
+    bool negatif = false;
+    if (angka < 0) {
+        negatif = true; // jika angka lebih kecil dari 0 maka ia merupakan bilangan negatif
+        angka = -angka;
+    }
+    
+    int balik = 0;
+    while (angka > 0){
+        int digit = angka % 10; // ambil digit terakhir
+        balik = balik * 10 + digit;
+        angka /= 10;    // buang digit terakhir
+    }
+
+    if(negatif){
+        return -balik;
+    }
+    else{
+        return balik;
+    }
+}
+
+int main(){
+    int banyak_angka;
+    cout << "Panjang array: ";
+    cin >> banyak_angka;
+
+    int deret[banyak_angka + 1];
+    cout << "Input elemen array: ";
+    for (int i = 0; i < banyak_angka; i++){
+        cin >> deret[i];
+    }
+
+    int nilai;
+    int hasil = 0;
+    for (int i = 0; i < banyak_angka; i++){
+        if (i % 2 == 0){
+            nilai = balik_angka(deret[i]);
+        }
+        else{
+            nilai = deret[i];
+        }
+        hasil += nilai;
+    }
+    cout << "Jumlah array setelah ditransformasi: " << hasil;
+}
