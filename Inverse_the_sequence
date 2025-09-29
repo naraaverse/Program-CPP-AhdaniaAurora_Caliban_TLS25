@@ -6,7 +6,7 @@ int balik_angka(int angka){ // fungsi untuk membalik digit suatu bilangan
         return 0;
     }
     bool negatif = false;
-    if (angka < 0) {
+    if (angka < 0) { 
         negatif = true; // jika angka lebih kecil dari 0 maka ia merupakan bilangan negatif
         angka = -angka;
     }
